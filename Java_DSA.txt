@@ -1,0 +1,95 @@
+
+6-Month Java + DSA Mastery Plan
+===============================
+
+**Month 1: Java Fundamentals**
+------------------------------
+- Week 1:
+  - Java Syntax & Variables
+  - Data Types, Type Casting
+  - Operators, Conditionals
+- Week 2:
+  - Loops (for, while, do-while)
+  - Arrays (1D, 2D)
+  - String Handling (String, StringBuilder)
+- Week 3:
+  - Methods (static, non-static)
+  - Introduction to OOP (Classes, Objects, Constructors)
+- Week 4:
+  - Inheritance, Polymorphism
+  - Encapsulation, Abstraction
+  - this, super, static, final keywords
+
+**Month 2: Advanced Java**
+--------------------------
+- Week 1:
+  - Exception Handling
+  - File Handling (File, Scanner, BufferedReader)
+- Week 2:
+  - Java Collections (List, Set, Map)
+  - Generics, Enums
+- Week 3:
+  - Lambda Expressions, Functional Interfaces
+  - Streams API
+- Week 4:
+  - Date & Time API
+  - Multithreading Basics
+  - JDBC Intro
+
+**Month 3: Core DSA – Arrays & Linked Lists**
+---------------------------------------------
+- Week 1:
+  - Array Manipulation Problems
+  - Sliding Window, Two Pointer Techniques
+- Week 2:
+  - Sorting Algorithms: Bubble, Selection, Insertion
+- Week 3:
+  - Merge Sort, Quick Sort
+- Week 4:
+  - Linked Lists (Singly, Doubly)
+  - Linked List Problems (Reversal, Middle Node, etc.)
+
+**Month 4: Stacks, Queues, Trees**
+----------------------------------
+- Week 1:
+  - Stack (Implementation & Problems)
+  - Queue, Circular Queue, Deque
+- Week 2:
+  - Binary Trees
+  - Tree Traversals (Inorder, Preorder, Postorder)
+- Week 3:
+  - BST, LCA, Diameter of Tree
+  - AVL Tree (optional)
+- Week 4:
+  - Heap & Priority Queue
+  - HashMap, HashSet, LinkedHashMap
+
+**Month 5: Graphs & Recursion**
+-------------------------------
+- Week 1:
+  - Recursion Basics to Advanced
+- Week 2:
+  - Graph Representations
+  - DFS, BFS
+- Week 3:
+  - Topological Sort, Cycle Detection
+- Week 4:
+  - Dijkstra, Prim, Kruskal Algorithms
+
+**Month 6: DP & Final Touch**
+-----------------------------
+- Week 1:
+  - Basic DP (Fibonacci, 0/1 Knapsack, LIS)
+- Week 2:
+  - LCS, Subset Sum, Matrix Chain Multiplication
+- Week 3:
+  - Tries, Disjoint Set Union (DSU)
+  - Bit Manipulation Basics
+- Week 4:
+  - Mock Interviews & DSA Practice
+  - System Design Intro (Optional)
+  - Revise & Build Projects
+
+**Daily Time Recommendation**: 3–5 hours  
+**Platforms**: LeetCode, GeeksforGeeks, HackerRank  
+**Projects**: CLI Tools, Mini DSA Projects, Open Source Contributions  

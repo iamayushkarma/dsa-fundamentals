@@ -38,23 +38,23 @@ public class BitManipulation {
         // in this situation if we have to update to 1 then apply Set bit operation
         // and of we want to update to 0 apply Clear bit operation
 
-        Scanner sc = new Scanner(System.in);
-        int operation = sc.nextInt();
+        // Scanner sc = new Scanner(System.in);
+        // int operation = sc.nextInt();
 
-        int n = 5;
-        int pos = 1;
+        // int n = 5;
+        // int pos = 1;
 
-        int bitMask = 1<<pos;
+        // int bitMask = 1<<pos;
 
-        if(operation == 1){
-            // Set bit operation
-            int finalNumber = n | bitMask;
-            System.out.println(finalNumber);
-        }else{
-            // Clear bit operation
-            int norBitMask = ~(bitMask);
-            int finalNumber = n & norBitMask;
-            System.out.println(finalNumber);
-        }
+        // if(operation == 1){
+        //     // Set bit operation
+        //     int finalNumber = n | bitMask;
+        //     System.out.println(finalNumber);
+        // }else{
+        //     // Clear bit operation
+        //     int norBitMask = ~(bitMask);
+        //     int finalNumber = n & norBitMask;
+        //     System.out.println(finalNumber);
+        // }
     }
 }

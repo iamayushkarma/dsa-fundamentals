@@ -3,8 +3,8 @@ package Fundamentals;
 import java.util.*;
 
 public class Loops {
-    public static void main(String args[]){
 
+    public static void main(String args[]) {
         //- For loop
         // for(int counter = 0; counter < 10; counter++){
         //     System.out.println("Vamos");
@@ -27,7 +27,6 @@ public class Loops {
         //     a++;
         // }
 
-
         //- Do-While loop
         // int i = 0;
         // do{
@@ -35,7 +34,7 @@ public class Loops {
         // }while (condation);
 
         // int a = 0;
-        // do { 
+        // do {
         //     System.out.println(a);
         //     a++;
         // } while (a<11);

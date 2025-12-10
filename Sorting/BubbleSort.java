@@ -1,4 +1,5 @@
 package Sorting;
+
 public class BubbleSort {
     //- Time complexity = O(n^2)
     // public static void printArray(int arr[]) {
@@ -23,7 +24,7 @@ public class BubbleSort {
     // }
 
     //- Practice questions
-     /*
+    /*
      Q. 1 Sort in Descending Order
       Modify bubble sort to sort the array in descending order instead of ascending.
       Input: {7, 8, 3, 1, 2}
@@ -60,25 +61,25 @@ public class BubbleSort {
     Input: {"banana", "apple", "cherry", "date"}
     Output: {"apple", "banana", "cherry", "date"}
     */
-//     public static void printArray(String arr[]) {
-//         for (int i = 0; i < arr.length; i++) {
-//             System.out.print(arr[i] + " ");
-//         }
-//       }
-//     public static void main(String[] args) {
-//         String arr[] = {"banana", "apple", "cherry", "date"};
-//         int count = 0;
-//         for (int i = 0; i < arr.length-1; i++) {
-//             for(int j = 0; j<arr.length-i-1; j++ ){
-//                 if(arr[j].compareTo(arr[j+1]) > 0){
-//                     String temp = arr[j];
-//                     arr[j] = arr[j + 1];
-//                     arr[j + 1] = temp;
-//                     count++;
-//             }
-//         }
-//     }
-//     System.out.println("Total swaps taken: " + count);
-//     printArray(arr);
-// }
+    //     public static void printArray(String arr[]) {
+    //         for (int i = 0; i < arr.length; i++) {
+    //             System.out.print(arr[i] + " ");
+    //         }
+    //       }
+    //     public static void main(String[] args) {
+    //         String arr[] = {"banana", "apple", "cherry", "date"};
+    //         int count = 0;
+    //         for (int i = 0; i < arr.length-1; i++) {
+    //             for(int j = 0; j<arr.length-i-1; j++ ){
+    //                 if(arr[j].compareTo(arr[j+1]) > 0){
+    //                     String temp = arr[j];
+    //                     arr[j] = arr[j + 1];
+    //                     arr[j + 1] = temp;
+    //                     count++;
+    //             }
+    //         }
+    //     }
+    //     System.out.println("Total swaps taken: " + count);
+    //     printArray(arr);
+    // }
 }

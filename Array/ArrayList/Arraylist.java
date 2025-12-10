@@ -1,8 +1,10 @@
 package Array.ArrayList;
+
 import java.util.ArrayList;
 
 public class Arraylist {
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         //> Wrapper class
         // Integer in = Integer.valueOf(7);
         // System.out.print(in);
@@ -28,8 +30,8 @@ public class Arraylist {
         System.out.println(l1.get(0)); // .get(index)
 
         // print via for loop
-        for(int i = 0; i < l1.size(); i++){
-            System.out.println(l1.get(i)); // 1 2 3 
+        for (int i = 0; i < l1.size(); i++) {
+            System.out.println(l1.get(i)); // 1 2 3
         }
 
         // Array list can be print directly

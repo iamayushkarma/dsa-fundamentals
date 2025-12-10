@@ -1,7 +1,9 @@
 package Fundamentals;
+
 import java.util.*;
 
 public class Strings {
+
     public static void main(String[] args) {
         //> String Declaration
         // String name = "Messi";
@@ -41,7 +43,6 @@ public class Strings {
         b = ++a;
         System.out.println(a);
         System.out.println(b);
-
 
         int c = 10;
         int d = 0;

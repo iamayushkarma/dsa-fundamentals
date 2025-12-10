@@ -1,15 +1,15 @@
 package Fundamentals;
-import java.util.*;
-import java.math.*;
- 
-public class FunctionsMethods {
 
+import java.math.*;
+import java.util.*;
+
+public class FunctionsMethods {
     //> Basic Function Template
     // returnType functionName(type arg1, type arg2, ...){
-        // operations
+    // operations
     //}
 
-    //> Print name 
+    //> Print name
     // public static void printName(String name){
     //     System.out.println(name);
     //     return;
@@ -53,7 +53,6 @@ public class FunctionsMethods {
     //     printFactorial(n);
     // }
 
-
     //- Practice Questions
 
     //> Q. 1 Enter 3 numbers from the user & make a function to print their average.
@@ -88,7 +87,7 @@ public class FunctionsMethods {
     // }
 
     //> Q. 3 Write a function which takes in 2 numbers and returns the greater of those two.
-    
+
     // public static void main(String[] args) {
     //      Scanner sc = new Scanner(System.in);
     //      int firstnumber = sc.nextInt();

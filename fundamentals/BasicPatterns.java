@@ -1,13 +1,13 @@
 package Fundamentals;
 
 public class BasicPatterns {
-    public static void main(String args[]){
-    
-    //> Q. 1
-    // *****
-    // *****
-    // *****
-    // *****
+
+    public static void main(String args[]) {
+        //> Q. 1
+        // *****
+        // *****
+        // *****
+        // *****
 
         // int n = 4;
         // int m = 5;
@@ -20,12 +20,11 @@ public class BasicPatterns {
         //     System.out.println();
         // }
 
-        
-    //> Q. 2
-    // *****
-    // *   *
-    // *   *
-    // *****
+        //> Q. 2
+        // *****
+        // *   *
+        // *   *
+        // *****
 
         // int n = 4;
         // int m = 5;
@@ -42,12 +41,11 @@ public class BasicPatterns {
         //     System.out.println();
         // }
 
-
-    //> Q. 3
-    // *
-    // **
-    // ***
-    // ****
+        //> Q. 3
+        // *
+        // **
+        // ***
+        // ****
 
         // int n = 4;
         // for(int i = 1; i<=n; i++){
@@ -58,28 +56,26 @@ public class BasicPatterns {
         //     System.out.println();
         // }
 
+        // //> Q. 4
+        // // ****
+        // // ***
+        // // **
+        // // *
 
-    // //> Q. 4
-    // // ****
-    // // ***
-    // // **
-    // // *
+        //     int n = 4;
+        //     for(int i = n; i>=1; i--){
+        //         // inner loop
+        //         for(int j = 1; j<=i; j++){
+        //             System.out.print("*");
+        //         }
+        //         System.out.println();
+        //     }
 
-    //     int n = 4;
-    //     for(int i = n; i>=1; i--){
-    //         // inner loop
-    //         for(int j = 1; j<=i; j++){
-    //             System.out.print("*");
-    //         }
-    //         System.out.println();
-    //     }
-
-
-    //> Q. 5
-    //    *
-    //   **
-    //  ***
-    // ****
+        //> Q. 5
+        //    *
+        //   **
+        //  ***
+        // ****
 
         // int n = 4;
         // // outer loop
@@ -95,12 +91,12 @@ public class BasicPatterns {
         //     System.out.println();
         // }
 
-    //> Q. 6
-    // 1
-    // 12
-    // 123
-    // 1234
-    // 12345
+        //> Q. 6
+        // 1
+        // 12
+        // 123
+        // 1234
+        // 12345
 
         // int n = 5;
         // for(int i = 1; i<=n; i++){
@@ -110,12 +106,12 @@ public class BasicPatterns {
         //     System.out.println();
         // }
 
-    //> Q. 7
-    // 12345
-    // 1234
-    // 123
-    // 12
-    // 1
+        //> Q. 7
+        // 12345
+        // 1234
+        // 123
+        // 12
+        // 1
 
         // int n = 5;
         // for(int i = 1; i<=n; i++){
@@ -124,13 +120,13 @@ public class BasicPatterns {
         //     }
         //     System.out.println();
         // }
-    
-    //> Q. 8 Floyd's Triangle
-    // 1 
-    // 2 3
-    // 4 5 6
-    // 7 8 9 10
-    // 11 12 13 14 15
+
+        //> Q. 8 Floyd's Triangle
+        // 1
+        // 2 3
+        // 4 5 6
+        // 7 8 9 10
+        // 11 12 13 14 15
 
         // int n = 5;
         // int num = 1;
@@ -143,12 +139,12 @@ public class BasicPatterns {
         //     System.out.println();
         // }
 
-    //> Q. 9
-    // 1 
-    // 0 1
-    // 1 0 1
-    // 0 1 0 1
-    // 1 0 1 0 1
+        //> Q. 9
+        // 1
+        // 0 1
+        // 1 0 1
+        // 0 1 0 1
+        // 1 0 1 0 1
 
         // int n = 5;
         // for(int i = 1; i<=n; i++){

@@ -1,14 +1,15 @@
 package Array.ArrayList;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class ArrayListQuestions {
 
-    static void reverseArrayList(ArrayList<Integer> list){
-        int i = 0; 
-        int j = list.size() -1;
+    static void reverseArrayList(ArrayList<Integer> list) {
+        int i = 0;
+        int j = list.size() - 1;
 
-        while(i < j){
+        while (i < j) {
             int temp = list.get(i);
             list.set(i, list.get(j));
             list.set(j, temp);
@@ -17,6 +18,7 @@ public class ArrayListQuestions {
             j--;
         }
     }
+
     public static void main(String[] args) {
         ArrayList<Integer> list1 = new ArrayList<>();
         list1.add(1);

@@ -2,9 +2,9 @@ package Sorting;
 
 import java.util.Arrays;
 
-public class MergSort {
+public class MergeSort {
 
-    static void merg(int[] arr, int l, int mid, int r) {
+    static void merge(int[] arr, int l, int mid, int r) {
         int n1 = mid - l + 1; // length of left array
         int n2 = r - mid; // length of right array
 
@@ -42,15 +42,15 @@ public class MergSort {
 
     }
 
-    static void mergSort(int[] arr, int l, int r) {
+    static void mergeSort(int[] arr, int l, int r) {
         if (l >= r)
             return;
 
         int mid = l + (r - l) / 2;
 
-        mergSort(arr, l, mid);
-        mergSort(arr, mid + 1, r);
-        merg(arr, l, mid, r);
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+        merge(arr, l, mid, r);
 
     }
 
@@ -60,7 +60,7 @@ public class MergSort {
         System.out.println(Arrays.toString(arr));
         System.out.print("Sorted array: ");
         int n = arr.length - 1;
-        mergSort(arr, 0, n);
+        mergeSort(arr, 0, n);
         System.out.println(Arrays.toString(arr));
     }
 }

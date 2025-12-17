@@ -54,7 +54,7 @@ public class QuickSort {
 
     public static void main(String[] args) {
 
-        int[] arr = { 8, 4, 5, 2, 1 };
+        int[] arr = { 8, 4, 5, 2, 1, 3 };
         System.out.println("Array before sort: " + Arrays.toString(arr));
         int n = arr.length;
         quickSort(arr, 0, n - 1);

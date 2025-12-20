@@ -8,8 +8,11 @@ public class SinglyLinkedList {
 
         Node(int data) {
             this.data = data;
-
         }
+    }
+
+    public static class linkedList {
+
     }
 
     public static void printLinkedList(Node head) {
@@ -25,6 +28,17 @@ public class SinglyLinkedList {
             return;
         System.out.print(head.data + " ");
         printLinkedListViaRecursion(head.next);
+    }
+
+    static int findLength(Node node) {
+
+        int length = 0;
+
+        while (node != null) {
+            length++;
+            node = node.next;
+        }
+        return length;
     }
 
     public static void main(String[] args) {
@@ -75,5 +89,8 @@ public class SinglyLinkedList {
 
         System.out.print("Linked list printed via recursion: ");
         printLinkedListViaRecursion(a);
+
+        System.out.println();
+        System.out.println("Length of Linked list is: " + findLength(a));
     }
 }

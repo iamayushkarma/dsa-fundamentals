@@ -15,6 +15,24 @@ public class SinglyLinkedList {
         static Node head = null;
         static Node tail = null;
 
+        void displayNode() {
+            Node temp = head;
+            while (temp != null) {
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+            }
+        }
+
+        static int findLength() {
+            int count = 0;
+            Node temp = head;
+            while (temp != null) {
+                count++;
+                temp = temp.next;
+            }
+            return count;
+        }
+
         static void insertAtEnd(int value) {
             Node temp = new Node(value);
 
@@ -40,6 +58,10 @@ public class SinglyLinkedList {
             Node t = new Node(value);
             Node temp = head;
 
+            if (idx < 0 || idx > findLength()) {
+                System.out.println("Index is larger than linked list length");
+                return;
+            }
             if (idx == 0) {
                 insertAtStart(value);
                 return;
@@ -48,9 +70,6 @@ public class SinglyLinkedList {
                 insertAtEnd(value);
                 return;
             }
-            if (idx > findLength() || idx < 0) {
-                System.out.println("Index is larger then linked list length");
-            }
             for (int i = 1; i <= idx - 1; i++) {
                 temp = temp.next;
             }
@@ -58,22 +77,16 @@ public class SinglyLinkedList {
             temp.next = t;
         }
 
-        void displayNode() {
+        int getValue(int idx) {
             Node temp = head;
-            while (temp != null) {
-                System.out.print(temp.data + " ");
+            if (idx < 0 || idx >= findLength()) {
+                System.out.println("Invalid index");
+                return -1;
+            }
+            for (int i = 0; i < idx; i++) {
                 temp = temp.next;
             }
-        }
-
-        static int findLength() {
-            int count = 0;
-            Node temp = head;
-            while (temp != null) {
-                count++;
-                temp = temp.next;
-            }
-            return count;
+            return temp.data;
         }
     }
 
@@ -166,7 +179,10 @@ public class SinglyLinkedList {
         newList.insertAtStart(6);
         newList.displayNode();
         System.out.println();
-        newList.insert(9, 8);
+        newList.insert(9, 4);
         newList.displayNode();
+        System.out.println();
+        int index = -2;
+        System.out.println("Value at index " + index + " is: " + newList.getValue(index));
     }
 }

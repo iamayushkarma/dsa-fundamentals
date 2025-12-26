@@ -125,6 +125,53 @@ public class SinglyLinkedListProblem {
         return head;
     }
 
+    // > Q6
+    // Check is linked list is a cycle
+    static boolean checkForCycle(Node head) {
+        if (head.next == null)
+            return false;
+        Node slow = head;
+        Node fast = head;
+        while (fast != null) {
+            if (slow.next == null || fast.next == null) {
+                return false;
+            }
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // > Q7
+    // Check is linked list is a cycle, and if it is return that node.
+    static Node findCycleNode(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        if (fast == null || fast.next == null)
+            return null;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                Node temp = head;
+
+                while (temp != slow) {
+                    temp = temp.next;
+                    slow = slow.next;
+                }
+                return slow;
+            }
+
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
 
         Node a = new Node(6);
@@ -150,14 +197,14 @@ public class SinglyLinkedListProblem {
         printLinkedList(a);
 
         // > Q3
-        Node u = new Node(4);
+        Node u1 = new Node(4);
         Node v = new Node(5);
 
-        u.next = v;
+        u1.next = v;
         v.next = d;
 
         System.out.println();
-        Node res = findIntersection(a, u);
+        Node res = findIntersection(a, u1);
         if (res != null) {
             System.out.println("Intersecting point value: " + res.value);
         } else {
@@ -174,6 +221,28 @@ public class SinglyLinkedListProblem {
         System.out.println();
         deleteMiddle(a);
         printLinkedList(a);
+
+        // > Q6
+        Node p = new Node(6);
+        Node q = new Node(16);
+        Node r = new Node(60);
+        Node s = new Node(5);
+        Node t = new Node(12);
+        Node u = new Node(8);
+
+        p.next = q;
+        q.next = r;
+        r.next = s;
+        s.next = t;
+        t.next = u;
+        u.next = r;
+        System.out.println();
+        System.out.println("Is linked list a cycle: " + checkForCycle(p));
+
+        // > Q7
+        System.out.println();
+        Node ans = findCycleNode(p);
+        System.out.println(ans.value);
 
     }
 

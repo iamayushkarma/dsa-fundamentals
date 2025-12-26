@@ -172,6 +172,84 @@ public class SinglyLinkedListProblem {
         return null;
     }
 
+    // >
+    // Q8 Merge linked list
+
+    static Node mergeTwoSortedLists(Node l1, Node m2) {
+
+        Node temp1 = l1;
+        Node temp2 = m2;
+
+        Node Head = new Node(-1);
+        Node temp = Head;
+
+        while (temp1 != null && temp2 != null) {
+
+            // - With using extra space
+            // if (temp1.value < temp2.value) {
+            // temp.next = new Node(temp1.value);
+            // temp1 = temp1.next;
+
+            // } else if (temp1.value > temp2.value) {
+            // temp.next = new Node(temp2.value);
+            // temp2 = temp2.next;
+            // } else {
+            // temp.next = new Node(temp1.value);
+            // temp1 = temp1.next;
+            // }
+            // temp = temp.next;
+
+            // - Without using extra space
+            if (temp1.value < temp2.value) {
+                temp.next = temp1;
+                temp = temp1;
+                temp1 = temp1.next;
+
+            } else if (temp1.value > temp2.value) {
+                temp.next = temp2;
+                temp = temp2;
+                temp2 = temp2.next;
+            } else {
+                temp.next = temp1;
+                temp = temp1;
+                temp1 = temp1.next;
+            }
+        }
+
+        if (temp1 == null) {
+            temp.next = temp2;
+        } else {
+            temp.next = temp1;
+        }
+        return Head.next;
+    }
+
+    // > Q9
+    // Reverse Linked list
+    static Node reverseLinkedList(Node head) {
+
+        // - Without recursion
+        Node prev = null;
+        Node current = head;
+        Node agla = null;
+
+        while (current != null) {
+            agla = current.next;
+            current.next = prev;
+            prev = current;
+            current = agla;
+        }
+        return prev;
+
+        // - With recursion
+        // if (head == null || head.next == null)
+        // return head;
+        // Node newHead = reverseLinkedList(head.next);
+        // head.next.next = head;
+        // head.next = null;
+        // return newHead;
+    }
+
     public static void main(String[] args) {
 
         Node a = new Node(6);
@@ -186,6 +264,7 @@ public class SinglyLinkedListProblem {
         c.next = d;
         d.next = e;
         e.next = f;
+        f.next = null;
 
         // > Q1
         Node temp = getNthValue(a, 3);
@@ -243,6 +322,62 @@ public class SinglyLinkedListProblem {
         System.out.println();
         Node ans = findCycleNode(p);
         System.out.println(ans.value);
+
+        // > Q8
+        // Sorted list 1st
+        // 2 → 6 → 11 → 19 → 28
+        Node l1 = new Node(2);
+        Node l2 = new Node(6);
+        Node l3 = new Node(11);
+        Node l4 = new Node(19);
+        Node l5 = new Node(28);
+
+        l1.next = l2;
+        l2.next = l3;
+        l3.next = l4;
+        l4.next = l5;
+
+        // Sorted list 2nd
+        // 1 → 5 → 9 → 14 → 21 → 35
+        Node m1 = new Node(1);
+        Node m2 = new Node(5);
+        Node m3 = new Node(9);
+        Node m4 = new Node(14);
+        Node m5 = new Node(21);
+        Node m6 = new Node(35);
+
+        m1.next = m2;
+        m2.next = m3;
+        m3.next = m4;
+        m4.next = m5;
+        m5.next = m6;
+
+        System.out.println();
+        Node finalList = mergeTwoSortedLists(l1, m1);
+        printLinkedList(finalList);
+
+        // > Q9
+
+        Node ll1 = new Node(1);
+        Node ll2 = new Node(2);
+        Node ll3 = new Node(3);
+        Node ll4 = new Node(4);
+        Node ll5 = new Node(5);
+        Node ll6 = new Node(6);
+
+        ll1.next = ll2;
+        ll2.next = ll3;
+        ll3.next = ll4;
+        ll4.next = ll5;
+        ll5.next = ll6;
+
+        System.out.println();
+        System.out.print("Original list: ");
+        printLinkedList(ll1);
+        System.out.println();
+        Node revll = reverseLinkedList(ll1);
+        System.out.print("Reversed list: ");
+        printLinkedList(revll);
 
     }
 

@@ -21,6 +21,20 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    // Print list via random head
+    static Node printViaRandomHaed(Node randomHead) {
+        Node temp = randomHead;
+
+        while (temp.prev != null) {
+            temp = temp.prev;
+        }
+        while (temp != null) {
+            System.out.print(temp.value + " ");
+            temp = temp.next;
+        }
+        return temp;
+    }
+
     public static void main(String[] args) {
 
         Node a = new Node(6);
@@ -46,5 +60,8 @@ public class DoublyLinkedList {
         // Print Doubly Linked List
         System.out.println();
         printDoublyLinkedList(a);
+
+        System.out.println();
+        printViaRandomHaed(d);
     }
 }

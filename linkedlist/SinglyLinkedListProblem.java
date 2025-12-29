@@ -306,11 +306,6 @@ public class SinglyLinkedListProblem {
         return maxSum;
     }
 
-    // > Q12
-    // Copy List with Random Pointer: Construct a deep copy of a linked list where
-    // each node contains an additional random pointer, which could point to any
-    // node in the list or null.
-
     public static void main(String[] args) {
 
         Node a = new Node(6);

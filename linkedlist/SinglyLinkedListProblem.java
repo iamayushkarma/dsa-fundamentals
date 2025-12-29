@@ -250,6 +250,32 @@ public class SinglyLinkedListProblem {
         // return newHead;
     }
 
+    // > Q10
+    // Palindrome Linked List
+
+    static boolean isLinkedListPalindrom(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node temp = reverseLinkedList(slow.next);
+        slow.next = temp;
+
+        Node p1 = head;
+        Node p2 = slow.next;
+
+        while (p2 != null) {
+            if (p1.value != p2.value)
+                return false;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
 
         Node a = new Node(6);
@@ -378,6 +404,25 @@ public class SinglyLinkedListProblem {
         Node revll = reverseLinkedList(ll1);
         System.out.print("Reversed list: ");
         printLinkedList(revll);
+
+        // > Q10
+        System.out.println();
+
+        Node p1 = new Node(6);
+        Node p2 = new Node(16);
+        Node p3 = new Node(60);
+        Node p4 = new Node(60);
+        Node p5 = new Node(16);
+        Node p6 = new Node(6);
+
+        p1.next = p2;
+        p2.next = p3;
+        p3.next = p4;
+        p4.next = p5;
+        p5.next = p6;
+        p6.next = null;
+
+        System.out.println("Is Linked list palindrom: " + isLinkedListPalindrom(p1));
 
     }
 

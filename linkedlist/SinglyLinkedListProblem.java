@@ -276,6 +276,41 @@ public class SinglyLinkedListProblem {
         return true;
     }
 
+    // > Q11
+    // Find the maximum twin sum of a linked list of even length.
+
+    static int findMaxTwinSum(Node head) {
+
+        int maxSum = Integer.MIN_VALUE;
+        Node slow = head;
+        Node fast = head;
+
+        while (fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        Node temp = reverseLinkedList(slow.next);
+        slow.next = temp;
+
+        Node p1 = head;
+        Node p2 = slow.next;
+
+        while (p2 != null) {
+            int sum = p1.value + p2.value;
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return maxSum;
+    }
+
+    // > Q12
+    // Copy List with Random Pointer: Construct a deep copy of a linked list where
+    // each node contains an additional random pointer, which could point to any
+    // node in the list or null.
+
     public static void main(String[] args) {
 
         Node a = new Node(6);
@@ -423,6 +458,29 @@ public class SinglyLinkedListProblem {
         p6.next = null;
 
         System.out.println("Is Linked list palindrom: " + isLinkedListPalindrom(p1));
+
+        // > Q11
+
+        Node s1 = new Node(7);
+        Node s2 = new Node(14);
+        Node s3 = new Node(3);
+        Node s4 = new Node(28);
+        Node s5 = new Node(9);
+        Node s6 = new Node(42);
+        Node s7 = new Node(5);
+        Node s8 = new Node(18);
+
+        s1.next = s2;
+        s2.next = s3;
+        s3.next = s4;
+        s4.next = s5;
+        s5.next = s6;
+        s6.next = s7;
+        s7.next = s8;
+        s8.next = null;
+
+        System.out.println();
+        System.out.println("Max twin sum in linked list is: " + findMaxTwinSum(s1));
 
     }
 

@@ -101,6 +101,54 @@ public class StackQuestions {
     // where the width of each bar is 1, return the area of the largest rectangle in
     // the histogram.
 
+    static int largestRectangleHistogram(int[] heights) {
+        int n = heights.length;
+        Stack<Integer> stack = new Stack<>();
+
+        int[] nextSmallextElement = new int[n];
+        int[] previousSmallextElement = new int[n];
+
+        // claculate next smallest element
+        stack.push(n - 1);
+        nextSmallextElement[n - 1] = n;
+        for (int i = n - 2; i >= 0; i--) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            if (stack.isEmpty())
+                nextSmallextElement[i] = n;
+            else
+                nextSmallextElement[i] = stack.peek();
+            stack.push(i);
+        }
+
+        // empty stack
+        while (!stack.isEmpty())
+            stack.pop();
+
+        // claculate previous smallest element
+        stack.push(0);
+        previousSmallextElement[0] = -1;
+        for (int i = 1; i <= n - 1; i++) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            if (stack.isEmpty())
+                previousSmallextElement[i] = -1;
+            else
+                previousSmallextElement[i] = stack.peek();
+            stack.push(i);
+        }
+
+        int maxArea = -1;
+
+        for (int i = 0; i < n; i++) {
+            int area = heights[i] * (nextSmallextElement[i] - previousSmallextElement[i] - 1);
+            maxArea = Math.max(maxArea, area);
+        }
+        return maxArea;
+    }
+
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -196,6 +244,12 @@ public class StackQuestions {
         System.out.print("Ans Q7: ");
         int[] arr7 = { 4, 6, 3, 2, 8, 1, 9 };
         System.out.println(Arrays.toString(nextGraterElement(arr7)));
+
+        // > Q8
+        System.out.println();
+        System.out.print("Ans Q8: ");
+        int[] arr8 = { 2, 1, 5, 6, 2, 3 };
+        System.out.println("Max area of this histogram is: " + largestRectangleHistogram(arr8));
 
     }
 }

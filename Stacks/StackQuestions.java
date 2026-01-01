@@ -353,6 +353,56 @@ public class StackQuestions {
         return postfix;
     }
 
+    // > Q12
+    // Conversion of a Prefix expression to a Postfix expression
+    static int postfixEvaluation(String str) {
+        Stack<Integer> numberStack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57) {
+                numberStack.push(ch - 48);
+            } else {
+                int value2 = numberStack.pop();
+                int value1 = numberStack.pop();
+                int result = switch (ch) {
+                    case '+' -> value1 + value2;
+                    case '-' -> value1 - value2;
+                    case '*' -> value1 * value2;
+                    case '/' -> value1 / value2;
+                    default -> throw new IllegalArgumentException("Invalid operator: " + ch);
+                };
+                numberStack.push(result);
+            }
+        }
+        return numberStack.peek();
+    }
+
+    static int prefixEvaluation(String str) {
+        Stack<Integer> numberStack = new Stack<>();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57) {
+                numberStack.push(ch - 48);
+            } else {
+                int value1 = numberStack.pop();
+                int value2 = numberStack.pop();
+                int result = switch (ch) {
+                    case '+' -> value1 + value2;
+                    case '-' -> value1 - value2;
+                    case '*' -> value1 * value2;
+                    case '/' -> value1 / value2;
+                    default -> throw new IllegalArgumentException("Invalid operator: " + ch);
+                };
+                numberStack.push(result);
+            }
+        }
+        return numberStack.peek();
+    }
+
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -472,5 +522,17 @@ public class StackQuestions {
         System.out.println("Ans Q11: ");
         String str11 = "9-(5+3)*4/6"; // postfix ab+
         System.out.println("Ans for the string is: " + postfixSum(str11));
+
+        // > Q12
+        System.out.println();
+        System.out.println("Ans Q12: ");
+        String str12 = "953+4*6/-";
+        System.out.println("Ans for the string is: " + postfixEvaluation(str12));
+
+        // > Q12
+        System.out.println();
+        System.out.println("Ans Q13: ");
+        String str13 = "-9/*+5346";
+        System.out.println("Ans for the string is: " + prefixEvaluation(str13));
     }
 }

@@ -403,6 +403,48 @@ public class StackQuestions {
         return numberStack.peek();
     }
 
+    // > Q14
+    static String prefixToPostfix(String str) {
+        Stack<String> numberStack = new Stack<>();
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57) {
+                numberStack.push("" + ch);
+            } else {
+                String value1 = numberStack.pop();
+                String value2 = numberStack.pop();
+                String result = value1 + value2 + ch;
+                numberStack.push(result);
+            }
+        }
+        String ans = numberStack.pop();
+        return ans;
+    }
+
+    // > Q15
+    static String postfixToPrefix(String str) {
+        Stack<String> numberStack = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57) {
+                numberStack.push("" + ch);
+            } else {
+                String value2 = numberStack.pop();
+                String value1 = numberStack.pop();
+                String result = ch + value1 + value2;
+                numberStack.push(result);
+            }
+        }
+        String ans = numberStack.pop();
+        return ans;
+    }
+
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -529,10 +571,22 @@ public class StackQuestions {
         String str12 = "953+4*6/-";
         System.out.println("Ans for the string is: " + postfixEvaluation(str12));
 
-        // > Q12
+        // > Q13
         System.out.println();
         System.out.println("Ans Q13: ");
         String str13 = "-9/*+5346";
         System.out.println("Ans for the string is: " + prefixEvaluation(str13));
+
+        // > Q14
+        System.out.println();
+        System.out.println("Ans Q14: ");
+        String str14 = "-9/*+5346"; // 953+4*6/-
+        System.out.println("Ans for the string is: " + prefixToPostfix(str14));
+
+        // > Q15
+        System.out.println();
+        System.out.println("Ans Q15: ");
+        String str15 = "953+4*6/-"; // -9/*+5346
+        System.out.println("Ans for the string is: " + postfixToPrefix(str15));
     }
 }

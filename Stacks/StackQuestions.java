@@ -149,8 +149,9 @@ public class StackQuestions {
         return maxArea;
     }
 
-    // > Prefix sum
-    static int prefixSum(String str) {
+    // > Q9
+    // Infix sum
+    static int infixSum(String str) {
         Stack<Integer> numberStack = new Stack<>();
         Stack<Character> operatorStack = new Stack<>();
 
@@ -232,6 +233,124 @@ public class StackQuestions {
             operatorStack.pop();
         }
         return numberStack.peek();
+    }
+
+    // > Q10
+    // Prefix calculation
+    static String prefixSum(String str) {
+        Stack<String> numberStack = new Stack<>();
+        Stack<Character> operatorStack = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57) {
+                String s = "" + ch;
+                numberStack.push(s);
+            } else if (operatorStack.isEmpty() || ch == '(' || operatorStack.peek() == '(')
+                operatorStack.push(ch);
+            else if (ch == ')') {
+                while (operatorStack.peek() != '(') {
+                    String value2 = numberStack.pop();
+                    String value1 = numberStack.pop();
+                    char op = operatorStack.pop();
+                    String st = op + value1 + value2;
+                    numberStack.push(st);
+                }
+                operatorStack.pop();
+            } else {
+                if (ch == '+' || ch == '-') {
+                    // work
+                    String value2 = numberStack.pop();
+                    String value1 = numberStack.pop();
+                    char op = operatorStack.pop();
+                    String st = op + value1 + value2;
+                    numberStack.push(st);
+                    // push
+                    operatorStack.push(ch);
+                } else if (ch == '*' || ch == '/') {
+                    if (operatorStack.peek() == '*' || operatorStack.peek() == '/') {
+                        String value2 = numberStack.pop();
+                        String value1 = numberStack.pop();
+                        char op = operatorStack.pop();
+                        String st = op + value1 + value2;
+                        numberStack.push(st);
+                        operatorStack.push(ch);
+                    } else {
+                        operatorStack.push(ch);
+                    }
+                }
+            }
+        }
+        while (!operatorStack.isEmpty()) {
+            String value2 = numberStack.pop();
+            String value1 = numberStack.pop();
+            char op = operatorStack.pop();
+            String st = op + value1 + value2;
+            numberStack.push(st);
+        }
+        String prefix = numberStack.pop();
+        return prefix;
+    }
+
+    // > Q11
+    // Prefix calculation
+    static String postfixSum(String str) {
+        Stack<String> numberStack = new Stack<>();
+        Stack<Character> operatorStack = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57) {
+                String s = "" + ch;
+                numberStack.push(s);
+            } else if (operatorStack.isEmpty() || ch == '(' || operatorStack.peek() == '(')
+                operatorStack.push(ch);
+            else if (ch == ')') {
+                while (operatorStack.peek() != '(') {
+                    String value2 = numberStack.pop();
+                    String value1 = numberStack.pop();
+                    char op = operatorStack.pop();
+                    String st = value1 + value2 + op;
+                    numberStack.push(st);
+                }
+                operatorStack.pop();
+            } else {
+                if (ch == '+' || ch == '-') {
+                    // work
+                    String value2 = numberStack.pop();
+                    String value1 = numberStack.pop();
+                    char op = operatorStack.pop();
+                    String st = value1 + value2 + op;
+                    numberStack.push(st);
+                    // push
+                    operatorStack.push(ch);
+                } else if (ch == '*' || ch == '/') {
+                    if (operatorStack.peek() == '*' || operatorStack.peek() == '/') {
+                        String value2 = numberStack.pop();
+                        String value1 = numberStack.pop();
+                        char op = operatorStack.pop();
+                        String st = value1 + value2 + op;
+                        numberStack.push(st);
+                        operatorStack.push(ch);
+                    } else {
+                        operatorStack.push(ch);
+                    }
+                }
+            }
+        }
+        while (!operatorStack.isEmpty()) {
+            String value2 = numberStack.pop();
+            String value1 = numberStack.pop();
+            char op = operatorStack.pop();
+            String st = value1 + value2 + op;
+            numberStack.push(st);
+        }
+        String postfix = numberStack.pop();
+        return postfix;
     }
 
     public static void main(String[] args) {
@@ -339,7 +458,19 @@ public class StackQuestions {
         // > Q9
         System.out.println();
         System.out.println("Ans Q9: ");
-        String str = "9-(5+3)*4/6";
-        System.out.println("Ans for the string is: " + prefixSum(str));
+        String str9 = "9-(5+3)*4/6"; // infix a+b
+        System.out.println("Ans for the string is: " + infixSum(str9));
+
+        // > Q10
+        System.out.println();
+        System.out.println("Ans Q10: ");
+        String str10 = "9-(5+3)*4/6"; // prefix +ab
+        System.out.println("Ans for the string is: " + prefixSum(str10));
+
+        // > Q11
+        System.out.println();
+        System.out.println("Ans Q11: ");
+        String str11 = "9-(5+3)*4/6"; // postfix ab+
+        System.out.println("Ans for the string is: " + postfixSum(str11));
     }
 }

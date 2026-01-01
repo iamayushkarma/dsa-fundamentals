@@ -149,6 +149,91 @@ public class StackQuestions {
         return maxArea;
     }
 
+    // > Prefix sum
+    static int prefixSum(String str) {
+        Stack<Integer> numberStack = new Stack<>();
+        Stack<Character> operatorStack = new Stack<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            int ascaii = (int) ch;
+
+            if (ascaii >= 48 && ascaii <= 57)
+                numberStack.push(ascaii - 48);
+            else if (operatorStack.isEmpty() || ch == '(' || operatorStack.peek() == '(')
+                operatorStack.push(ch);
+            else if (ch == ')') {
+                while (operatorStack.peek() != '(') {
+                    int value2 = numberStack.pop();
+                    int value1 = numberStack.pop();
+
+                    char op = operatorStack.peek();
+
+                    int result = switch (op) {
+                        case '+' -> value1 + value2;
+                        case '-' -> value1 - value2;
+                        case '*' -> value1 * value2;
+                        case '/' -> value1 / value2;
+                        default -> throw new IllegalArgumentException("Invalid operator: " + op);
+                    };
+                    numberStack.push(result);
+                    operatorStack.pop();
+                }
+                operatorStack.pop();
+            } else {
+                if (ch == '+' || ch == '-') {
+                    // work
+                    int value2 = numberStack.pop();
+                    int value1 = numberStack.pop();
+
+                    char op = operatorStack.peek();
+
+                    int result = switch (op) {
+                        case '+' -> value1 + value2;
+                        case '-' -> value1 - value2;
+                        case '*' -> value1 * value2;
+                        case '/' -> value1 / value2;
+                        default -> throw new IllegalArgumentException("Invalid operator: " + op);
+                    };
+                    numberStack.push(result);
+                    operatorStack.pop();
+                    // push
+                    operatorStack.push(ch);
+                } else if (ch == '*' || ch == '/') {
+                    if (operatorStack.peek() == '*' || operatorStack.peek() == '/') {
+                        int value2 = numberStack.pop();
+                        int value1 = numberStack.pop();
+                        if (operatorStack.peek() == '*')
+                            numberStack.push(value1 * value2);
+                        else
+                            numberStack.push(value1 / value2);
+                        operatorStack.pop();
+                        operatorStack.push(ch);
+                    } else {
+                        operatorStack.push(ch);
+                    }
+                }
+            }
+        }
+        while (!operatorStack.isEmpty()) {
+            int value2 = numberStack.pop();
+            int value1 = numberStack.pop();
+
+            char op = operatorStack.peek();
+
+            int result = switch (op) {
+                case '+' -> value1 + value2;
+                case '-' -> value1 - value2;
+                case '*' -> value1 * value2;
+                case '/' -> value1 / value2;
+                default -> throw new IllegalArgumentException("Invalid operator: " + op);
+            };
+            numberStack.push(result);
+            operatorStack.pop();
+        }
+        return numberStack.peek();
+    }
+
     public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -251,5 +336,10 @@ public class StackQuestions {
         int[] arr8 = { 2, 1, 5, 6, 2, 3 };
         System.out.println("Max area of this histogram is: " + largestRectangleHistogram(arr8));
 
+        // > Q9
+        System.out.println();
+        System.out.println("Ans Q9: ");
+        String str = "9-(5+3)*4/6";
+        System.out.println("Ans for the string is: " + prefixSum(str));
     }
 }

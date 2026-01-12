@@ -37,6 +37,6 @@ Counting, Radix, and Bucket are non-comparison based sorting algorithms.
 */
 
 public class SortingAlgorithmsChart {
-    // This class intentionally contains no code.
-    // The purpose of this file is documentation only.
+  // This class intentionally contains no code.
+  // The purpose of this file is documentation only.
 }

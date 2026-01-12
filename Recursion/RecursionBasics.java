@@ -3,19 +3,19 @@ package Recursion;
 public class RecursionBasics {
     static void printNumbers(int a) {
         if (a == 1) {
-            System.out.println(a);
+            System.out.print(a + " ");
             return;
         }
         printNumbers(a - 1);
-        System.out.println(a);
+        System.out.print(a + " ");
     }
 
     static void printDecresing(int b) {
         if (b == 1) {
-            System.out.println(b);
+            System.out.print(b + " ");
             return;
         }
-        System.out.println(b);
+        System.out.print(b + " ");
         printDecresing(b - 1);
     }
 

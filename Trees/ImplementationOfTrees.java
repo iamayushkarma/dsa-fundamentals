@@ -24,33 +24,6 @@ public class ImplementationOfTrees {
         displayTree(root.right);
     }
 
-    // pre-order traversal display
-    public static void preOrderTraversal(Node root) {
-        if (root == null)
-            return;
-        System.out.print(root.val + " ");
-        preOrderTraversal(root.left);
-        preOrderTraversal(root.right);
-    }
-
-    // in-order traversal display
-    public static void inOrderTraversal(Node root) {
-        if (root == null)
-            return;
-        inOrderTraversal(root.left);
-        System.out.print(root.val + " ");
-        inOrderTraversal(root.right);
-    }
-
-    // post-order traversal display
-    public static void postOrderTraversal(Node root) {
-        if (root == null)
-            return;
-        postOrderTraversal(root.left);
-        postOrderTraversal(root.right);
-        System.out.print(root.val + " ");
-    }
-
     // size
     public static int size(Node root) {
         if (root == null)
@@ -108,12 +81,6 @@ public class ImplementationOfTrees {
         // 5 ->
         // 3 -> 6
         // 6 ->
-
-        preOrderTraversal(root); // 1 2 4 5 3 6 7
-        System.out.println();
-        inOrderTraversal(root); // 4 2 5 1 3 6 7
-        System.out.println();
-        postOrderTraversal(root); // 4 5 2 6 7 3 1
 
         System.out.println();
         System.out.println("Size of tree: " + size(root));

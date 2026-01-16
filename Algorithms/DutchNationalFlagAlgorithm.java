@@ -21,16 +21,13 @@ public class DutchNationalFlagAlgorithm {
                     swap(nums, mid, low);
                     low++;
                     mid++;
-                    break;
                 }
                 case 1 -> {
                     mid++;
-                    break;
                 }
                 case 2 -> {
                     swap(nums, mid, high);
                     high--;
-                    break;
                 }
             }
         }

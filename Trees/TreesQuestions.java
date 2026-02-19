@@ -1,5 +1,7 @@
 package Trees;
 
+import java.util.*;
+
 public class TreesQuestions {
 
     public static class Node {
@@ -26,9 +28,10 @@ public class TreesQuestions {
         displayTree(root.right);
     }
 
-    static boolean flag = true;
+    static boolean flag = true; // related to Q1
+    public static int max; // related to Q3
 
-    public static int level(Node root) {
+    public static int level(Node root) { // modified for Q1 and Q3 (added extra levels difference check)
         if (root == null)
             return 0;
         int leftLevel = level(root.left);
@@ -36,14 +39,38 @@ public class TreesQuestions {
         if (Math.abs(leftLevel - rigthLevel) > 1) {
             flag = false;
         }
+        max = Math.max(max, (leftLevel + rigthLevel));
         return 1 + Math.max(leftLevel, rigthLevel);
     }
 
-    // Q1. Balance binary tree
+    // > Q1. Balance binary tree
     public static boolean isBinaryTreeBalanced(Node root) {
         flag = true;
         level(root);
         return flag;
+    }
+
+    // > Q2 Binary Tree Level Order Traversal
+    public static void levelOrderTraversal(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node head = queue.remove();
+            System.out.print(head.val + " ");
+            if (head.left != null)
+                queue.add(head.left);
+            if (head.right != null)
+                queue.add(head.right);
+        }
+    }
+
+    // > Q2
+
+    public static int diameterOfBinaryTree(Node root) {
+        max = 0;
+        level(root);
+        return max;
     }
 
     public static void main(String[] args) {
@@ -62,7 +89,7 @@ public class TreesQuestions {
         b.left = e;
         b.right = f;
 
-        // Q1
+        // > Q1 Balance binary tree
         Node main = new Node(100);
 
         Node lSide = new Node(200);
@@ -77,6 +104,14 @@ public class TreesQuestions {
         lSide.left = deep1;
         deep1.left = deep2;
 
-        System.out.println(isBinaryTreeBalanced(main)); // false
+        System.out.println("Q1 Is binart tree balanced" + isBinaryTreeBalanced(main)); // false
+
+        // > Q2 Binary Tree Level Order Traversal
+        System.out.print("Q2 Binary Tree Level Order Traversal: ");
+        levelOrderTraversal(root);
+
+        // > Q3 Diameter of a Binary Tree
+        System.out.println();
+        System.out.println("Q3 Diameter of binary tree is: " + diameterOfBinaryTree(root));
     }
 }

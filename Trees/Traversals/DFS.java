@@ -1,8 +1,8 @@
 package Trees.Traversals;
 
-public class TraversalOrder {
+public class DFS {
 
-    // Helper function
+    // Pre Order Traversal root -> left -> right
     public static void preOrderTraversal(Node head) {
         if (head == null)
             return;
@@ -12,6 +12,7 @@ public class TraversalOrder {
 
     }
 
+    // In Order Traversal left -> root -> right
     public static void inOrderTraversal(Node head) {
         if (head == null)
             return;
@@ -21,6 +22,7 @@ public class TraversalOrder {
 
     }
 
+    // Post Order Traversal left -> right -> root
     public static void postOrderTraversal(Node head) {
         if (head == null)
             return;

@@ -65,12 +65,31 @@ public class TreesQuestions {
         }
     }
 
-    // > Q2
-
+    // > Q3 Diameter of a Binary Tree
     public static int diameterOfBinaryTree(Node root) {
         max = 0;
         level(root);
         return max;
+    }
+
+    // > Q4 Right view of Binary Tree
+    public static ArrayList<Integer> RightView(Node root) {
+        ArrayList<Integer> list = new ArrayList<>();
+        helperForRightView(list, 0, root);
+        return list;
+    }
+
+    // helper function for Q4
+    static void helperForRightView(ArrayList<Integer> list, int level, Node root) {
+        if (root == null)
+            return;
+        if (level >= list.size())
+            list.add(root.val);
+        else {
+            list.set(level, root.val);
+        }
+        helperForRightView(list, level + 1, root.left);
+        helperForRightView(list, level + 1, root.right);
     }
 
     public static void main(String[] args) {
@@ -88,6 +107,8 @@ public class TreesQuestions {
         Node f = new Node(7);
         b.left = e;
         b.right = f;
+        Node g = new Node(8);
+        c.left = g;
 
         // > Q1 Balance binary tree
         Node main = new Node(100);
@@ -113,5 +134,10 @@ public class TreesQuestions {
         // > Q3 Diameter of a Binary Tree
         System.out.println();
         System.out.println("Q3 Diameter of binary tree is: " + diameterOfBinaryTree(root));
+
+        // > Q4 Right view of Binary Tree
+        System.out.println();
+        ArrayList<Integer> list = RightView(root);
+        System.out.println(list);
     }
 }

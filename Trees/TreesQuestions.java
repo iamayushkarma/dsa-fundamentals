@@ -14,7 +14,7 @@ public class TreesQuestions {
         }
     }
 
-    // helper function
+    // > helper functions
     public static void displayTree(Node root) {
         if (root == null)
             return;
@@ -27,6 +27,21 @@ public class TreesQuestions {
         displayTree(root.left);
         displayTree(root.right);
     }
+
+    // helper function for Q4
+    static void helperForRightView(ArrayList<Integer> list, int level, Node root) {
+        if (root == null)
+            return;
+        if (level >= list.size())
+            list.add(root.val);
+        else {
+            list.set(level, root.val);
+        }
+        helperForRightView(list, level + 1, root.left);
+        helperForRightView(list, level + 1, root.right);
+    }
+
+    // -----------------------------------------
 
     static boolean flag = true; // related to Q1
     public static int max; // related to Q3
@@ -79,17 +94,19 @@ public class TreesQuestions {
         return list;
     }
 
-    // helper function for Q4
-    static void helperForRightView(ArrayList<Integer> list, int level, Node root) {
+    // > Q5 Lowest Common Ancestor of Binary Tree
+    public static Node LowestCommenAncestor(Node root, Node p, Node q) {
         if (root == null)
-            return;
-        if (level >= list.size())
-            list.add(root.val);
-        else {
-            list.set(level, root.val);
-        }
-        helperForRightView(list, level + 1, root.left);
-        helperForRightView(list, level + 1, root.right);
+            return null;
+        if (root == p || root == q)
+            return root;
+        // search left and right subtree
+        Node left = LowestCommenAncestor(root.left, p, q);
+        Node right = LowestCommenAncestor(root.right, p, q);
+
+        if (left != null && right != null)
+            return root;
+        return (left != null) ? left : right;
     }
 
     public static void main(String[] args) {
@@ -136,8 +153,13 @@ public class TreesQuestions {
         System.out.println("Q3 Diameter of binary tree is: " + diameterOfBinaryTree(root));
 
         // > Q4 Right view of Binary Tree
-        System.out.println();
+        System.out.print("Q4 Right view of Binary Tree: ");
         ArrayList<Integer> list = RightView(root);
         System.out.println(list);
+
+        // > Q5 Lowest Common Ancestor of Binary Tree
+        System.out.print("Lowest Common Ancestor of Binary Tree: ");
+        Node res = (LowestCommenAncestor(root, c, f));
+        System.out.println(res.val);
     }
 }

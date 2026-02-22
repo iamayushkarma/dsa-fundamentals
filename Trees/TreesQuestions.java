@@ -41,6 +41,15 @@ public class TreesQuestions {
         helperForRightView(list, level + 1, root.right);
     }
 
+    // helper function for Q6
+    static void addNodeToList(ArrayList<Node> list, Node root) {
+        if (root == null)
+            return;
+        list.add(root);
+        addNodeToList(list, root.left);
+        addNodeToList(list, root.right);
+    }
+
     // -----------------------------------------
 
     static boolean flag = true; // related to Q1
@@ -109,6 +118,25 @@ public class TreesQuestions {
         return (left != null) ? left : right;
     }
 
+    // > Q6 Flatten Binary Tree to Linked List
+
+    public static ArrayList<Node> flattenBinaryTree(Node root) {
+        ArrayList<Node> list = new ArrayList<>();
+        addNodeToList(list, root);
+        for (int i = 0; i < list.size() - 1; i++) {
+            Node a = list.get(i);
+            Node b = list.get(i + 1);
+
+            a.right = b;
+            a.left = null;
+        }
+        Node lastNode = list.get(list.size() - 1);
+        lastNode.left = null;
+        lastNode.right = null;
+
+        return list;
+    }
+
     public static void main(String[] args) {
 
         Node root = new Node(1);
@@ -161,5 +189,13 @@ public class TreesQuestions {
         System.out.print("Lowest Common Ancestor of Binary Tree: ");
         Node res = (LowestCommenAncestor(root, c, f));
         System.out.println(res.val);
+
+        // > Q6 Flatten Binary Tree to Linked List
+        ArrayList<Node> list6 = flattenBinaryTree(root);
+        System.out.print("Binary Tree to Linked List: ");
+        for (Node n : list6) {
+            System.out.print(n.val + " -> ");
+        }
+
     }
 }

@@ -170,7 +170,7 @@ public class TreesQuestions {
         lSide.left = deep1;
         deep1.left = deep2;
 
-        System.out.println("Q1 Is binart tree balanced" + isBinaryTreeBalanced(main)); // false
+        System.out.println("Q1 Is binart tree balanced " + isBinaryTreeBalanced(main)); // false
 
         // > Q2 Binary Tree Level Order Traversal
         System.out.print("Q2 Binary Tree Level Order Traversal: ");

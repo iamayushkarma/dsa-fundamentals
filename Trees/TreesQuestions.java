@@ -50,7 +50,7 @@ public class TreesQuestions {
         addNodeToList(list, root.right);
     }
 
-    // -----------------------------------------
+    // ------------------------------------------
 
     static boolean flag = true; // related to Q1
     public static int max; // related to Q3

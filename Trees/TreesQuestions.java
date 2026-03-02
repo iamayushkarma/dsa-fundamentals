@@ -152,7 +152,7 @@ public class TreesQuestions {
         Node f = new Node(7);
         b.left = e;
         b.right = f;
-        Node g = new Node(8);
+        Node g = new Node();
         c.left = g;
 
         // > Q1 Balance binary tree

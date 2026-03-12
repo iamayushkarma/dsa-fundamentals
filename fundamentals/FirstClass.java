@@ -1,4 +1,4 @@
-package Fundamentals;
+package fundamentals;
 
 public class FirstClass {
 

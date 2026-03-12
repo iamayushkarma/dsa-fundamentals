@@ -1,18 +1,18 @@
-package Fundamentals;
+package fundamentals;
 
 public class AdvancePatterns {
 
-    //> Q. 1 Butterfly Pattern
-    // *        *
-    // **      **
-    // ***    ***
-    // ****  ****
+    // > Q. 1 Butterfly Pattern
+    // * *
+    // ** **
+    // *** ***
+    // **** ****
     // **********
     // **********
-    // ****  ****
-    // ***    ***
-    // **      **
-    // *        *
+    // **** ****
+    // *** ***
+    // ** **
+    // * *
     static void butterflyPattern(int n) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
@@ -40,11 +40,11 @@ public class AdvancePatterns {
         }
     }
 
-    //> Q. 2 Solid Rhombus
-    //     *****
-    //    *****
-    //   *****
-    //  *****
+    // > Q. 2 Solid Rhombus
+    // *****
+    // *****
+    // *****
+    // *****
     // *****;
     static void solidRhombus(int n) {
         for (int i = 1; i <= n; i++) {
@@ -58,11 +58,11 @@ public class AdvancePatterns {
         }
     }
 
-    //> Q. 3 Number Pyramid
-    //     1
-    //    2 2
-    //   3 3 3
-    //  4 4 4 4
+    // > Q. 3 Number Pyramid
+    // 1
+    // 2 2
+    // 3 3 3
+    // 4 4 4 4
     // 5 5 5 5 5
     static void numberPyramid(int n) {
         for (int i = 1; i <= n; i++) {
@@ -76,11 +76,11 @@ public class AdvancePatterns {
         }
     }
 
-    //> Q. 4 Palindromic Pattern
-    //     1
-    //    212
-    //   32123
-    //  4321234
+    // > Q. 4 Palindromic Pattern
+    // 1
+    // 212
+    // 32123
+    // 4321234
     // 543212345
     static void palindromicPattern(int n) {
         for (int i = 1; i <= n; i++) {
@@ -97,15 +97,15 @@ public class AdvancePatterns {
         }
     }
 
-    //> Diomand Pattern
-    //    *
-    //   ***
-    //  *****
+    // > Diomand Pattern
+    // *
+    // ***
+    // *****
     // *******
     // *******
-    //  *****
-    //   ***
-    //    *
+    // *****
+    // ***
+    // *
     static void diomandPattern(int n) {
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n - i; j++) {
@@ -127,7 +127,7 @@ public class AdvancePatterns {
         }
     }
 
-    //> Number Pattern
+    // > Number Pattern
     // 1234567
     // 2345671
     // 3456712

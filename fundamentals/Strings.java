@@ -1,30 +1,28 @@
-package Fundamentals;
-
-import java.util.*;
+package fundamentals;
 
 public class Strings {
 
     public static void main(String[] args) {
-        //> String Declaration
+        // > String Declaration
         // String name = "Messi";
         // String fullName = "Messi 10";
         // Scanner sc = new Scanner(System.in);
         // String n ame = sc.nextLine();
         // System.out.println("Your name is: " + name);
 
-        //> Concatenation
+        // > Concatenation
         // String firstName = "Tony";
         // String lastName = "Stark";
         // String fullName = firstName + " " + lastName;
         // System.out.println(fullName);
         // System.out.println(fullName.length());
 
-        //> charAt
+        // > charAt
         // for(int i = 0; i < fullName.length(); i++){
-        //     System.out.println(fullName.charAt(i));
+        // System.out.println(fullName.charAt(i));
         // }
 
-        //> Compare
+        // > Compare
         // String firstName = "Tony";
         // String lastName = "Tony";
 
@@ -33,9 +31,9 @@ public class Strings {
         // s1 < s2: -ve value
 
         // if(firstName.compareTo(lastName) == 0){
-        //     System.out.println("Strings are equal");
+        // System.out.println("Strings are equal");
         // }else{
-        //     System.out.println("Strings are not equal");
+        // System.out.println("Strings are not equal");
         // }
 
         int a = 10;

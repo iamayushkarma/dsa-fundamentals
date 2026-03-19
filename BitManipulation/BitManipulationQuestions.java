@@ -19,13 +19,18 @@ public class BitManipulationQuestions {
         return new int[] { a, b };
     }
 
+    // > Q3 2's Power
+    public static long towsPower(int x) {
+        return 1L << x;
+    }
+
     public static void main(String[] args) {
 
         // > Q1 Find single number
         int[] arr1 = { 1, 2, 1, 3, 5, 4, 3, 4 };
         System.out.println("Q1 | Single element in array is: " + findSingle(arr1));
 
-        // > Swap two values using XOR
+        // > Q2 Swap two values using XOR
         int value1 = 10;
         int value2 = 21;
 
@@ -34,6 +39,10 @@ public class BitManipulationQuestions {
         value2 = result[1];
 
         System.out.println("Q2 | Swapped values are value1: " + value1 + " value2: " + value2);
+
+        // > Q3 2's Power
+        int x3 = 32;
+        System.out.println("Q3 | 2's Power is: " + towsPower(x3));
 
     }
 }

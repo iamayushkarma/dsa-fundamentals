@@ -22,7 +22,7 @@ public class BasicsOfDP {
     }
 
     public static void main(String[] args) {
-        int n = 50;
+        int n = 60;
 
         // Without DP | Time taken is approx 400ms (which is approx ~77,000× faster)
         long start1 = System.nanoTime();

@@ -53,12 +53,10 @@ public class SlidingWindowQuestions {
     public static int smallestSubWithSum(int[] arr, int target) {
         int ans = Integer.MAX_VALUE;
         int windowStarting = 0;
-        int n = arr.length;
         int sum = 0;
         int length = 0;
-        int i = 0;
 
-        while (i < n) {
+        for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
             if (sum > target) {
                 length = i - windowStarting + 1;
@@ -71,23 +69,14 @@ public class SlidingWindowQuestions {
                     }
                 }
             }
-            i++;
         }
-
-        // for (int i = 0; i < n; i++) {
-        // if (sum <= target) {
+        // for (int i = 0; i < arr.length; i++) {
         // sum += arr[i];
-        // System.out.println("Sum " + sum);
-        // if (sum > target) {
-        // length = i - windowStarting + 1;
-        // System.out.println("length " + length);
+
+        // while (sum > target) {
+        // ans = Math.min(ans, i - windowStarting + 1);
+        // sum -= arr[windowStarting++];
         // }
-        // } else if (sum > target) {
-        // sum -= arr[windowStarting];
-        // windowStarting++;
-        // }
-        // System.out.println("Ans " + ans);
-        // ans = Math.min(ans, length);
         // }
         return ans;
 

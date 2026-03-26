@@ -36,7 +36,7 @@ public class BasicsOfSlidingWindow {
 
     public static void main(String[] args) {
 
-        int[] arr = { 4, 2, 1, 7, 8, 1, 2 }; // sample array
+        int[] arr = { 4, 2, 1, 7, 8, 1, 3 }; // sample array
         int k = 3; // window size
 
         // call function and print result

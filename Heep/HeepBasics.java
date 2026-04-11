@@ -58,7 +58,7 @@ public class HeepBasics {
             return -1;
         int max = heep[0];
         heep[0] = heep[heepSize - 1];
-        heepSize--;
+        heepSize -= 1;
         hepify(0);
         System.out.println(max);
         return max;

@@ -2,6 +2,20 @@ package Heep;
 
 public class HeepBasics {
 
+    // Helper functions
+    public static void printHeep() {
+        for (int i = 0; i < heepSize; i++) {
+            System.out.print(heep[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void swap(int i, int j) {
+        int temp = heep[i];
+        heep[i] = heep[j];
+        heep[j] = temp;
+    }
+
     // - Insertion on element O(logn)
     // - Removal of min element O(logn)
     // - Get min element O(1)
@@ -28,9 +42,7 @@ public class HeepBasics {
             largert = rightNode;
         }
         if (largert != index) {
-            int temp = heep[largert];
-            heep[largert] = heep[index];
-            heep[index] = temp;
+            swap(index, largert);
             hepify(largert);
         }
     }
@@ -41,10 +53,29 @@ public class HeepBasics {
         }
     }
 
-    // print heep
-    public static void printHeep() {
-        for (int i = 0; i < heepSize; i++) {
-            System.out.print(heep[i] + " ");
+    public static int getMax() {
+        if (heepSize <= 0)
+            return -1;
+        int max = heep[0];
+        heep[0] = heep[heepSize - 1];
+        heepSize--;
+        hepify(0);
+        System.out.println(max);
+        return max;
+    }
+
+    public static void changeValue(int i, int newValue) {
+        if (i < 0 || i >= heepSize || heep[i] >= newValue)
+            return;
+
+        heep[i] = newValue;
+        // int parentVal = (int) (Math.ceil((i / 2.0) - 1));
+        int parentVal = (i - 1) / 2;
+
+        while (i > 0 && heep[i] > heep[parentVal]) {
+            swap(i, parentVal);
+            i = parentVal;
+            parentVal = (i - 1) / 2;
         }
     }
 
@@ -53,6 +84,10 @@ public class HeepBasics {
         int[] arr = { 10, 5, 20, 6, 11 };
         HeepBasics heep = new HeepBasics(arr);
         heep.buildHeep(arr);
+        heep.printHeep();
+        heep.getMax();
+        heep.printHeep();
+        heep.changeValue(1, 66);
         heep.printHeep();
     }
 }

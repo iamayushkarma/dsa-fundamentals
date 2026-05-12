@@ -87,7 +87,7 @@ public class HeepBasics {
         heep.printHeep();
         heep.getMax();
         heep.printHeep();
-        heep.changeValue(1, 66);
+        heep.changeValue(1, 68);
         heep.printHeep();
     }
 }

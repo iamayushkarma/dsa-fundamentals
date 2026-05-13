@@ -71,7 +71,7 @@ public class HeepQuestions {
 
         // > Restore the sorted order of an array where every element is at most k
         // > positions away from its correct position.
-        int[] arr2 = { 3, 1, 2, 6, 4, 5 };
+        int[] arr2 = { 3, 1, 2, 6, 4, 6 };
         System.out.println("Q2 | Sorted array is: " + Arrays.toString(nearlySorted(arr2, 3)));
 
         // > Q3 Connect all ropes in an array into one rope with minimum total cost,

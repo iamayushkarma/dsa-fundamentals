@@ -66,7 +66,7 @@ public class HeepQuestions {
         System.out.println();
 
         // > Q1 Find kth smallest element in an array
-        int[] arr1 = { 1, 2, 8, 9, 14, 21, 6, 33, 84, 51};
+        int[] arr1 = { 1, 2, 8, 9, 14, 21, 6, 33, 84};
         System.out.println("Q1 | Kth smallest el is: " + findKthSmallestElement(arr1, 3));
 
         // > Restore the sorted order of an array where every element is at most k

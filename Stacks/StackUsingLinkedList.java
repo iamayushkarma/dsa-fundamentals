@@ -86,6 +86,7 @@ public class StackUsingLinkedList {
         stack.push(5);
         stack.push(14);
         stack.push(16);
+        stack.push(21);
         stack.display();
         System.out.println();
     }
